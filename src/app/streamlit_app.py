@@ -12,7 +12,8 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from src.config import ARTIFACTS_DIR, RAW_DIR, REPORTS_DIR  # noqa: E402
+from src.config import ARTIFACTS_DIR, REPORTS_DIR  # noqa: E402
+
 
 @dataclass(frozen=True)
 class PolicyConfig:
@@ -62,7 +63,6 @@ def assign_band(pd_value: float, cutpoints: dict) -> str:
 
 
 def band_decision(band: str) -> str:
-
     return {"A": "APPROVE", "B": "APPROVE", "C": "REVIEW", "D": "REJECT"}[band]
 
 
@@ -72,14 +72,9 @@ def load_model():
 
 
 @st.cache_data
-def load_example_row() -> pd.Series:
-    df = pd.read_parquet(RAW_DIR / "openml_give_me_some_credit_raw.parquet").drop_duplicates()
-    X = df.drop(columns=["target"])
-    nunique = X.nunique(dropna=True)
-    constant_cols = nunique[nunique <= 1].index.tolist()
-    if constant_cols:
-        X = X.drop(columns=constant_cols)
-    return X.iloc[0]
+def load_feature_defaults() -> dict:
+    path = REPORTS_DIR / "app_feature_defaults.json"
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def main() -> None:
@@ -93,18 +88,14 @@ def main() -> None:
     cfg = load_policy_config()
     cutpoints = load_cutpoints()
     model = load_model()
-
-    example = load_example_row()
+    defaults = load_feature_defaults()
 
     st.subheader("1) Input features")
     st.caption("Edit values and click 'Score'.")
 
     inputs = {}
-    for col, val in example.items():
-        if pd.api.types.is_number(val):
-            inputs[col] = st.number_input(col, value=float(val))
-        else:
-            inputs[col] = st.text_input(col, value=str(val))
+    for col, default_val in defaults.items():
+        inputs[col] = st.number_input(col, value=float(default_val))
 
     if st.button("Score"):
         X_input = pd.DataFrame([inputs])
@@ -121,7 +112,7 @@ def main() -> None:
         st.subheader("2) Results")
         st.metric("Calibrated PD", f"{pd_value:.4f}")
         st.metric("Score Band", band)
-        st.metric("Decision", decision)
+        st.metric("Decision (band rule)", decision)
         st.metric("Expected Profit (per loan)", f"{exp_prof:.2f}")
         st.metric("Best Threshold (calibrated)", f"{best_threshold:.4f}")
         st.metric("Decision (threshold rule)", decision_threshold)

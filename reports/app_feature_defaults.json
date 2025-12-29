@@ -1,12 +1,12 @@
 {
-  "RevolvingUtilizationOfUnsecuredLines": 0.2,
-  "age": 45,
-  "NumberOfTime30-59DaysPastDueNotWorse": 0,
-  "DebtRatio": 0.3,
-  "MonthlyIncome": 5000,
-  "NumberOfOpenCreditLinesAndLoans": 8,
-  "NumberOfTimes90DaysLate": 0,
-  "NumberRealEstateLoansOrLines": 1,
-  "NumberOfTime60-89DaysPastDueNotWorse": 0,
-  "NumberOfDependents": 1
+  "RevolvingUtilizationOfUnsecuredLines": 0.154234577,
+  "age": 52.0,
+  "NumberOfTime30-59DaysPastDueNotWorse": 0.0,
+  "DebtRatio": 0.368233536,
+  "MonthlyIncome": 5400.0,
+  "NumberOfOpenCreditLinesAndLoans": 8.0,
+  "NumberOfTimes90DaysLate": 0.0,
+  "NumberRealEstateLoansOrLines": 1.0,
+  "NumberOfTime60-89DaysPastDueNotWorse": 0.0,
+  "NumberOfDependents": 0.0
 }
