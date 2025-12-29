@@ -17,4 +17,5 @@ data/processed/
 Thumbs.db
 .vscode/
 
-artifacts/
+artifacts/*
+!artifacts/calibrated_isotonic.joblib
