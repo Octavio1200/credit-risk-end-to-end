@@ -1,3 +1,5 @@
+![CI](https://github.com/Octavio1200/credit-risk-end-to-end/actions/workflows/ci.yml/badge.svg)
+
 # Credit Risk Scoring (End-to-End)
 Probability of Default (PD) model with calibration, risk segmentation (score bands), and profit-based credit policy simulation. Includes a Streamlit scoring demo.
 

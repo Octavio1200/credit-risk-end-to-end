@@ -1,20 +1,18 @@
 import json
+import sys
 from dataclasses import dataclass
+from pathlib import Path
 
 import joblib
-import numpy as np
 import pandas as pd
 import streamlit as st
 
-import sys
-from pathlib import Path
-
+# Ensure project root is on sys.path BEFORE importing from src.*
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from src.config import ARTIFACTS_DIR, RAW_DIR, REPORTS_DIR
-
+from src.config import ARTIFACTS_DIR, RAW_DIR, REPORTS_DIR  # noqa: E402
 
 @dataclass(frozen=True)
 class PolicyConfig:

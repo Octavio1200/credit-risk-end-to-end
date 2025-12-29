@@ -2,7 +2,6 @@ import json
 from datetime import datetime, timezone
 
 import openml
-import pandas as pd
 
 from src.config import RAW_DIR
 
