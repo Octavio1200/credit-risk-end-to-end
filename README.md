@@ -80,6 +80,8 @@ Figures:
 ### Results on Credit Risk Scoring DEMO
 ![RCRSD](reports/figures/results.png)
 
+## Streamlit Community Cloud
+[link](https://credit-risk-end-to-end-kq2hham6gxeau8omrwzwju.streamlit.app/)
 
 ## How to run (Windows PowerShell)
 
