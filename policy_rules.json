@@ -1,0 +1,17 @@
+{
+  "model_artifact": "artifacts/calibrated_isotonic.joblib",
+  "banding": {
+    "type": "quantiles_on_test_pd",
+    "bands": ["A", "B", "C", "D"],
+    "decisions": {
+      "A": "APPROVE",
+      "B": "APPROVE",
+      "C": "REVIEW",
+      "D": "REJECT"
+    }
+  },
+  "notes": [
+    "Bands derived from quantiles of calibrated PD on the test set for portfolio demonstration.",
+    "In production, cutpoints must be derived on training data and monitored for drift."
+  ]
+}

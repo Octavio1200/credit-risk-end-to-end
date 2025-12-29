@@ -1,0 +1,18 @@
+# Python env / caches
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Data (do not commit raw/interim/processed)
+data/raw/
+data/interim/
+data/processed/
+
+# Reports (optional: keep JSON/CSV, skip images if you want)
+# reports/figures/
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/

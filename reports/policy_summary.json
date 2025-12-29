@@ -1,0 +1,21 @@
+{
+  "policy_config": {
+    "ead": 1000.0,
+    "annual_margin_rate": 0.2,
+    "lgd": 0.6,
+    "acquisition_cost": 10.0
+  },
+  "best_threshold_chosen_on": "validation_expected_profit",
+  "best_threshold": 0.23653266331658293,
+  "validation": {
+    "approve_rate": 0.1292306405053759,
+    "expected_profit_total": 101159.53994339558,
+    "realized_profit_total": 558910.0
+  },
+  "test_at_best_threshold": {
+    "approve_rate": 0.12440175374008501,
+    "expected_profit_total": 123580.11136513007,
+    "realized_profit_total": 671030.0,
+    "base_rate_test": 0.06700358111047894
+  }
+}

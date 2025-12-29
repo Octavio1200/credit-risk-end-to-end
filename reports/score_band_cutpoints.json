@@ -1,0 +1,6 @@
+{
+  "definition": "Quantile-based bands on calibrated PD (test set). A=lowest risk, D=highest risk.",
+  "q25": 0.019083902553756096,
+  "q50": 0.03722339533122864,
+  "q75": 0.05946353333166784
+}
