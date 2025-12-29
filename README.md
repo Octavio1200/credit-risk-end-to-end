@@ -102,6 +102,9 @@ python -m src.models.policy_simulation_calibrated
 
 streamlit run src\app\streamlit_app.py
 
+python -m src.run_all
+
+
 
 
 
