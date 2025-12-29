@@ -13,12 +13,24 @@ Probability of Default (PD) model with calibration, risk segmentation (score ban
 ## Dataset
 OpenML “Give Me Some Credit” (target: financial distress within 2 years). Data is downloaded via OpenML API.
 
-## Results (your run)
+## Results
 ### Baseline model (Test)
 - ROC-AUC: **0.8030**
 - PR-AUC: **0.3253**
 - KS: **0.4646**
 - Base rate (default): **0.0670**
+
+## Key Figures
+
+### ROC Curve (Test)
+![ROC](reports/figures/roc_test.png)
+
+### Calibration Curve (Test)
+![Calibration](reports/figures/calibration_curve_test.png)
+
+### Expected Profit vs Threshold (Calibrated PD)
+![Profit](reports/figures/profit_vs_threshold_calibrated.png)
+
 
 ### Calibration (Test)
 Baseline probabilities were heavily miscalibrated (mean PD ~0.406 vs base rate ~0.067).  
@@ -62,25 +74,22 @@ Figures:
 
 ## How to run (Windows PowerShell)
 
-### 1) Create venv + install dependencies
 ```powershell
 python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
 
-### 2) Download data
-```powershell
+$env:PYTHONPATH="."
+
 python -m src.data.ingest
 python -m src.data.validate
 
-### 3) Train baseline + calibrate + bands + policy
-```powershell
 python -m src.models.train_baseline
 python -m src.models.calibrate
 python -m src.models.score_bands
 python -m src.models.policy_simulation_calibrated
 
-### 4) Streamlit demo
-```powershell
 streamlit run src\app\streamlit_app.py
+
+
 
