@@ -72,6 +72,15 @@ Figures:
 - `reports/figures/profit_vs_threshold_calibrated.png`
 - `reports/figures/approval_rate_vs_threshold_calibrated.png`
 
+## Streamlit Results
+
+### Credit Risk Scoring DEMO
+![CRSD](reports/figures/riskmodel.png)
+
+### Results on Credit Risk Scoring DEMO
+![RCRSD](reports/figures/results.png)
+
+
 ## How to run (Windows PowerShell)
 
 ```powershell
@@ -90,6 +99,12 @@ python -m src.models.score_bands
 python -m src.models.policy_simulation_calibrated
 
 streamlit run src\app\streamlit_app.py
+
+
+
+
+
+
 
 
 
